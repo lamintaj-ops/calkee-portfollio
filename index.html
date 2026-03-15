@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flutter Developer | Mobile Apps | AI/ML Integration | Creative Problem Solver">
+    <meta name="keywords" content="Flutter, Dart, Mobile Development, AI, Machine Learning, Portfolio">
+    <meta name="author" content="Spai">
+    <title>Spai - Flutter Developer Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ── Featured Project: Phone-sized carousel ── */
+        .featured-project {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .carousel-wrapper {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .carousel-phone-frame {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        /* Phone-screen sized container */
+        .carousel {
+            width: 220px;
+            height: 420px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(6,163,66,0.25), 0 4px 16px rgba(0,0,0,0.3);
+            border: 3px solid rgba(6,163,66,0.3);
+            background: #000;
+            cursor: grab;
+            user-select: none;
+        }
+        .carousel:active { cursor: grabbing; }
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .carousel-btn {
+            background: rgba(6,163,66,0.15);
+            border: 1.5px solid rgba(6,163,66,0.4);
+            color: #06a342;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, transform .15s;
+            flex-shrink: 0;
+        }
+        .carousel-btn:hover {
+            background: rgba(6,163,66,0.35);
+            transform: scale(1.1);
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 7px;
+        }
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(6,163,66,0.25);
+            cursor: pointer;
+            transition: background .25s, transform .25s;
+        }
+        .dot.active {
+            background: #06a342;
+            transform: scale(1.3);
+        }
+        .project-details {
+            flex: 1;
+            min-width: 260px;
+        }
+        @media (max-width: 768px) {
+            .featured-project { flex-direction: column; align-items: center; }
+            .project-details { width: 100%; }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%2306a342'>S</text></svg>">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="images/app-icon.png" alt="Spai Logo" class="logo-img">
+                <span class="brand-text">Spai</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Hi, I'm <span class="gradient-text">Spai</span></h1>
+                <p class="hero-subtitle">Creative Problem Solver</p>
+                <p class="hero-description">
+                    I build innovative mobile applications that solve real-world problems using cutting-edge technologies like AI/ML and beautiful user interfaces.
+                </p>
+                <div class="hero-cta">
+                    <a href="#featured" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="gradient-blob blob-1"></div>
+                <div class="gradient-blob blob-2"></div>
+                <div class="gradient-blob blob-3"></div>
+                <div class="avatar">
+                    <img src="images/app-icon.png" alt="Spai - Flutter Developer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-quote">
+                        "Giving a Voice to the Silent: Transforming Data into Lifelines."
+                    </p>
+                    <p>
+                        In the world of prey animals, silence is a survival instinct. Rabbits rarely show pain until it's too late. 
+                        I developed a specialized health screening application that translates a rabbit's most vital health indicator—their 
+                        digestive output—into actionable insights.
+                    </p>
+                    <p>
+                        I believe that technology's greatest purpose is to protect those who cannot speak for themselves. By turning daily 
+                        observations into biometric data, my work empowers owners to detect early warning signs of GI Stasis and other 
+                        critical conditions, ensuring that no bunny suffers in silence.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">📱</div>
+                        <h3>Mobile-First</h3>
+                        <p>Responsive, performant apps for all platforms</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🤖</div>
+                        <h3>AI Integration</h3>
+                        <p>TensorFlow Lite & on-device ML models</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Beautiful, intuitive user experiences</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⚙️</div>
+                        <h3>Architecture</h3>
+                        <p>Clean, scalable code with BLoC pattern</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="featured-project">
+                <div class="carousel-wrapper">
+                    <div class="carousel-phone-frame">
+                        <button class="carousel-btn carousel-btn-left" id="carouselPrev" aria-label="Previous slide">&#8592;</button>
+                        <div class="carousel" id="carouselContainer">
+                            <div class="carousel-track" id="carouselTrack">
+                                <div class="carousel-slide"><img src="images/slide1.png" alt="CALKEE Welcome"></div>
+                                <div class="carousel-slide"><img src="images/slide2.png" alt="Terms and Conditions"></div>
+                                <div class="carousel-slide"><img src="images/slide3.png" alt="Rabbit List"></div>
+                                <div class="carousel-slide"><img src="images/slide4.png" alt="Add Rabbit"></div>
+                                <div class="carousel-slide"><img src="images/slide5.png" alt="Poop Tips"></div>
+                                <div class="carousel-slide"><img src="images/slide6.png" alt="Health History"></div>
+                                <div class="carousel-slide"><img src="images/slide7.png" alt="Health History"></div>
+                                <div class="carousel-slide"><img src="images/slide8.png" alt="Health History"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-btn-right" id="carouselNext" aria-label="Next slide">&#8594;</button>
+                    </div>
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <img src="images/app-icon.png" alt="Rabbit Health App" style="width: 60px; height: 60px; border-radius: 14px; object-fit: cover; box-shadow: 0 5px 15px rgba(6, 163, 66, 0.2);">
+                        <div>
+                            
+                            <h3 class="project-title" style="margin-bottom: 0; margin-top: 0.25rem;">Rabbit Health Monitoring</h3>
+                        </div>
+                    </div>
+                    <p class="project-tagline">AI-powered health tracking for rabbit owners</p>
+                    <p class="project-description">
+                        An innovative Flutter application that uses machine learning to analyze rabbit health through 
+                        automated feces detection and classification. The app combines computer vision (YOLOv8), real-time 
+                        database synchronization, and intelligent health recommendations.
+                    </p>
+                    <div class="project-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>📷 AI-powered feces analysis with YOLOv8 TensorFlow Lite</li>
+                            <li>🐰 Manage and track multiple rabbit profiles</li>
+                            <li>📊 Health history with interactive charts</li>
+                            <li>🔄 Offline-first architecture with SQLite</li>
+                            <li>⚡ Real-time health status & recommendations</li>
+                            <li>📱 Cross-platform (Android & iOS)</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">TensorFlow Lite</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">BLoC</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/rabbit-app/index.html" class="btn btn-primary">Read Case Study</a>
+                        <a href="https://github.com/yourusername/rabbit_poop1_beforetranslate" target="_blank" class="btn btn-secondary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Assets Showcase -->
+    <section class="app-showcase">
+        <div class="container">
+            <div class="app-showcase-image" style="margin-bottom: 2.5rem;">
+                <img src="images/poster.png" alt="Poster" class="poster-large">
+            </div>
+            <div class="app-showcase-content">
+                <div class="app-showcase-text">
+                    <h3>🎨 App Design & Identity</h3>
+                    <h2>Rabbit Health Visual System</h2>
+                    <p>
+                        Every successful app needs a strong visual identity. The Rabbit Health Monitoring app features 
+                        a clean, intuitive design system with a distinctive icon, consistent color palette, and thoughtful 
+                        typography that makes the health tracking experience feel approachable and trustworthy.
+                    </p>
+                    <p>
+                        <strong>Design Principles:</strong>
+                    </p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>✓ <strong>Clarity:</strong> Easy to understand at a glance</li>
+                        <li>✓ <strong>Accessibility:</strong> Works for all user abilities</li>
+                        <li>✓ <strong>Consistency:</strong> Unified visual language</li>
+                        <li>✓ <strong>Motion:</strong> Smooth, meaningful animations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Video Showcase</h2>
+            <div class="videos-grid">
+                <div class="video-container">
+                    <h3 class="video-title">Overview</h3>
+                    <div class="video-wrapper">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/heTqVMm5_Lk" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <h3 class="video-title">Interview</h3>
+                    <div class="video-wrapper">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/qQcILL4OcFc" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Facebook Reel Section -->
+            <div class="facebook-reel-section">
+                <div class="video-container">
+                    <h3 class="video-title">Thai PBS Podcast</h3>
+                    <div class="video-wrapper-916">
+                        <iframe
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1237376107971814%2F&show_text=false&allowfullscreen=true"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            scrolling="no">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3>Mobile Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon">📱</span>
+                            <span>Flutter</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">◊</span>
+                            <span>Dart</span>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>AI/ML & Computer Vision</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon">🤖</span>
+                            <span>TensorFlow Lite</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">👁️</span>
+                            <span>YOLOv8</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🧠</span>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">🐍</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Backend & Databases</h3>
+                    <div class="skills-grid">
+                       
+                        <div class="skill-item">
+                            <span class="skill-icon">🗄️</span>
+                            <span>SQLite</span>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Tools & Concepts</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-icon">⬛</span>
+                            <span>Git</span>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <span class="skill-icon">📊</span>
+                            <span>Data Visualization</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <p class="section-subtitle">Honored to be recognized for innovation and excellence</p>
+            <div class="awards-content">
+                <div class="award-card featured-award">
+                    <div class="award-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text">International</span>
+                    </div>
+                    <div class="award-images">
+                        <div class="award-image-item">
+                            <img src="images/moodeng1.png" alt="Moodeng AI Award Certificate">
+                        </div>
+                        <div class="award-image-item">
+                            <img src="images/moodeng2.png" alt="Moodeng AI Award Trophy">
+                        </div>
+                    </div>
+                    <div class="award-details">
+                        <h3 class="award-title">Moodeng AI Award</h3>
+                        <p class="award-level">International Recognition</p>
+                        <p class="award-description">
+                            Recognized for outstanding innovation in artificial intelligence and machine learning applications. 
+                            This prestigious international award celebrates groundbreaking work in developing AI-powered solutions 
+                            that make a meaningful impact on real-world problems.
+                        </p>
+                        
+                    </div>
+                </div>
+
+                <!-- TNIAC 2025 Conference -->
+                <div class="award-card conference-card">
+                    <div class="award-badge" style="background: linear-gradient(135deg, #1a73e8, #0d47a1);">
+                        <span class="badge-icon">📄</span>
+                        <span class="badge-text">Conference Paper</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-image">
+                            <img src="images/conference.png" alt="TNIAC 2025 Conference">
+                        </div>
+                        <div class="award-details">
+                            <h3 class="award-title">TNIAC 2025</h3>
+                            <p class="award-level">Thailand National Innovation and Academic Conference</p>
+                            <p class="award-description">
+                                Presented research findings at TNIAC 2025, contributing to the academic community through innovative work in AI and mobile technology development.
+                            </p>
+                            
+                            <a href="https://drive.google.com/file/d/1COkPrnqrTkzeJ686gWPWSSz2ZfxNHsva/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                📄 View Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contract</h2>
+            <p class="section-subtitle">
+                I'm always interested in hearing about new projects and opportunities.
+            </p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:laminta.sp@gmail.com">laminta.sp@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/laminta-jonglalwit-774777243" target="_blank">linkedin.com/in/laminta-jonglalwit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Spai. All rights reserved. | Built with creativity and code</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#awards">Awards</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Enhanced Carousel with touch/swipe support
+        (function() {
+            const track = document.getElementById('carouselTrack');
+            const container = document.getElementById('carouselContainer');
+            const prevBtn = document.getElementById('carouselPrev');
+            const nextBtn = document.getElementById('carouselNext');
+            const dots = document.querySelectorAll('#carouselDots .dot');
+            const slides = document.querySelectorAll('.carousel-slide');
+            let current = 0;
+            const total = slides.length;
+
+            function goTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+            dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+            // Touch / swipe
+            let startX = 0;
+            container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            container.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+            });
+
+            // Mouse drag
+            let isDragging = false, dragStartX = 0;
+            container.addEventListener('mousedown', e => { isDragging = true; dragStartX = e.clientX; });
+            container.addEventListener('mouseup', e => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = dragStartX - e.clientX;
+                if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+            });
+            container.addEventListener('mouseleave', () => { isDragging = false; });
+
+            // Auto-play
+            setInterval(() => goTo(current + 1), 3500);
+        })();
+    </script>
+</body>
+</html>

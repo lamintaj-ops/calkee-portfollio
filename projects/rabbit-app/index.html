@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rabbit Health Monitoring - AI-powered health tracking for rabbit owners">
+    <title>Rabbit Health Monitoring - Case Study | Spai Portfolio</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        .case-study-header {
+            background: linear-gradient(135deg, #06a342 0%, #4ecdc4 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .case-study-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-header p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .case-study-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .case-study-section {
+            margin-bottom: 4rem;
+        }
+
+        .case-study-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 1rem;
+        }
+
+        .case-study-section h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(6, 163, 66, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-item {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(6, 163, 66, 0.1);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, rgba(6, 163, 66, 0.05) 0%, rgba(78, 205, 196, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .benefits h3 {
+            margin-top: 0;
+        }
+
+        .benefits ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .benefits li {
+            padding: 0.75rem 0;
+            color: var(--gray);
+        }
+
+        .benefits li::before {
+            content: '✓ ';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .case-study-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .case-study-cta h3 {
+            color: white;
+        }
+
+        .case-study-cta p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .breadcrumb {
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--gray);
+            margin: 0 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-header {
+                padding: 60px 0;
+            }
+
+            .case-study-header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../../images/app-icon.png" alt="Spai Logo" class="logo-img">
+                <span class="brand-text">Spai</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../../#about">About</a></li>
+                <li><a href="../../#featured">Featured</a></li>
+                <li><a href="../../#projects">Projects</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <div class="case-study-header">
+        <div class="container">
+            <img src="../../images/app-icon.png" alt="Rabbit Health" style="width: 80px; height: 80px; border-radius: 20px; object-fit: cover; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <h1>Rabbit Health Monitoring</h1>
+            <p>AI-powered health tracking system for rabbit owners combining computer vision, mobile-first design, and intelligent health recommendations</p>
+        </div>
+    </div>
+
+    <!-- Case Study Content -->
+    <div class="case-study-content">
+        <div class="breadcrumb">
+            <a href="../../">Home</a>
+            <span>/</span>
+            <a href="../../#featured">Featured Project</a>
+            <span>/</span>
+            <span>Rabbit Health Monitoring</span>
+        </div>
+
+        <!-- Overview -->
+        <div class="case-study-section">
+            <h2>Project Overview</h2>
+            <p>
+                Rabbit Health Monitoring is an innovative Flutter application designed to solve a real-world problem: 
+                rabbit owners need a reliable way to track their pets' health. Rabbits are sensitive animals, and their 
+                health status can be inferred from the appearance and quantity of their feces. This app automates that 
+                analysis using cutting-edge machine learning.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">On-Device Processing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Key Features</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Platforms (iOS/Android)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">YOLOv8</div>
+                    <div class="stat-label">ML Model</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="case-study-section">
+            <h2>Problem Statement</h2>
+            <h3>The Challenge</h3>
+            <p>
+                Rabbit owners and breeders struggle with:
+            </p>
+            <ul>
+                <li>Lack of objective health monitoring tools</li>
+                <li>Difficulty detecting early signs of illness</li>
+                <li>No standardized way to track feces observations</li>
+                <li>Limited access to veterinary consultation on routine observations</li>
+                <li>Manual record-keeping that is tedious and error-prone</li>
+            </ul>
+            
+            <h3>Why This Matters</h3>
+            <p>
+                Rabbits are prey animals that hide illnesses well. By the time owners notice behavioral changes, 
+                the problem may be serious. Feces appearance is one of the earliest indicators of health issues. 
+                An automated, intelligent system can catch problems early and potentially save lives.
+            </p>
+        </div>
+
+        <!-- Solution -->
+        <div class="case-study-section">
+            <h2>Solution Architecture</h2>
+            <p>
+                The app combines three core technologies:
+            </p>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h4>Mobile-First UI/UX</h4>
+                        <p>Intuitive interface built with Flutter for seamless iOS and Android experiences</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-content">
+                        <h4>AI/ML Processing</h4>
+                        <p>YOLOv8 TensorFlow Lite model runs inference on-device with no cloud dependency</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-content">
+                        <h4>Local Database</h4>
+                        <p>SQLite database for offline-first architecture with full data persistence</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Data Visualization</h4>
+                        <p>Interactive charts and health trend analysis using fl_chart library</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>Smart Recommendations</h4>
+                        <p>Intelligent health status determination with actionable recommendations</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-content">
+                        <h4>BLoC Architecture</h4>
+                        <p>Clean, scalable state management following enterprise patterns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="case-study-section">
+            <h2>Key Features</h2>
+            
+            <div class="benefits">
+                <h3>📷 AI-Powered Analysis</h3>
+                <p>
+                    Users can capture images of rabbit feces using the in-app camera. The YOLOv8 model 
+                    automatically detects and classifies the feces, counts them, and determines health status. 
+                    The system achieves this with custom-trained model weights and real-time inference.
+                </p>
+            </div>
+
+            <div class="benefits">
+                <h3>🐰 Rabbit Profile Management</h3>
+                <p>
+                    Create and manage multiple rabbit profiles with detailed information:
+                </p>
+                <ul>
+                    <li>Name, breed, birthdate, and weight tracking</li>
+                    <li>Custom profile photos from gallery or camera</li>
+                    <li>Individual health history per rabbit</li>
+                    <li>Quick search and filter across multiple rabbits</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h3>📊 Health Dashboard & History</h3>
+                <p>
+                    Comprehensive health tracking with:
+                </p>
+                <ul>
+                    <li>Color-coded health status (green = normal, orange = caution, red = critical)</li>
+                    <li>Interactive charts showing feces trends over time</li>
+                    <li>Detailed historical records with date/time timestamps</li>
+                    <li>Quick health overview of all rabbits</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h3>💡 Smart Recommendations</h3>
+                <p>
+                    The app provides intelligent, context-aware recommendations:
+                </p>
+                <ul>
+                    <li>"Keep an eye on it" - for minor variations</li>
+                    <li>"Consult your veterinarian" - for concerning trends</li>
+                    <li>"Critical: See veterinarian immediately" - for serious issues</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h3>📱 Offline-First Architecture</h3>
+                <p>
+                    All data is stored locally on the device:
+                </p>
+                <ul>
+                    <li>No internet connection required for core functionality</li>
+                    <li>Instant access to historical data</li>
+                    <li>Privacy-first approach - all data stays on user's device</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h3>🔐 Reliable Data Persistence</h3>
+                <p>
+                    SQLite database ensures:
+                </p>
+                <ul>
+                    <li>ACID compliance for data integrity</li>
+                    <li>Efficient queries for real-time health analysis</li>
+                    <li>Scalable schema supporting future features</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Stack -->
+        <div class="case-study-section">
+            <h2>Technical Stack</h2>
+            
+            <h3>Frontend & Mobile</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Flutter</strong><br><small>Cross-platform UI framework</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Dart</strong><br><small>Programming language</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Material Design 3</strong><br><small>UI framework & guidelines</small>
+                </div>
+                <div class="tech-item">
+                    <strong>BLoC</strong><br><small>State management pattern</small>
+                </div>
+            </div>
+
+            <h3>Machine Learning</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>YOLOv8</strong><br><small>Object detection model</small>
+                </div>
+                <div class="tech-item">
+                    <strong>TensorFlow Lite</strong><br><small>Mobile ML framework</small>
+                </div>
+                <div class="tech-item">
+                    <strong>flutter_vision</strong><br><small>TFLite integration plugin</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Image Processing</strong><br><small>Custom preprocessing</small>
+                </div>
+            </div>
+
+            <h3>Data & Storage</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>SQLite</strong><br><small>Local database</small>
+                </div>
+                <div class="tech-item">
+                    <strong>SharedPreferences</strong><br><small>Key-value storage</small>
+                </div>
+                <div class="tech-item">
+                    <strong>sqflite</strong><br><small>SQLite plugin for Flutter</small>
+                </div>
+                <div class="tech-item">
+                    <strong>path_provider</strong><br><small>File system access</small>
+                </div>
+            </div>
+
+            <h3>Visualization & Features</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>fl_chart</strong><br><small>Data visualization</small>
+                </div>
+                <div class="tech-item">
+                    <strong>camera</strong><br><small>Camera integration</small>
+                </div>
+                <div class="tech-item">
+                    <strong>image_picker</strong><br><small>Gallery & camera picker</small>
+                </div>
+                <div class="tech-item">
+                    <strong>permission_handler</strong><br><small>Runtime permissions</small>
+                </div>
+            </div>
+
+            <h3>Architecture & Tools</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Get It</strong><br><small>Service locator/DI</small>
+                </div>
+                <div class="tech-item">
+                    <strong>flutter_bloc</strong><br><small>State management</small>
+                </div>
+                <div class="tech-item">
+                    <strong>intl</strong><br><small>Internationalization</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Git</strong><br><small>Version control</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Highlights -->
+        <div class="case-study-section">
+            <h2>Technical Implementation Highlights</h2>
+            
+            <h3>1. Custom Image Preprocessing Pipeline</h3>
+            <p>
+                The app implements a sophisticated image preprocessing pipeline for YOLOv8 inference:
+            </p>
+            <div class="code-block">
+// Letterbox image resizing to maintain aspect ratio
+// Converts various input sizes to 640×640 canvas
+// Adds black padding where needed
+// Result: Consistent input for YOLOv8 model
+            </div>
+
+            <h3>2. On-Device ML Inference</h3>
+            <p>
+                YOLOv8 runs entirely on the device with:
+            </p>
+            <ul>
+                <li>No cloud dependencies or API calls</li>
+                <li>Configurable confidence threshold (0.2) and IOU threshold (0.4)</li>
+                <li>Real-time performance optimized for mobile</li>
+                <li>Custom label filtering for relevant detections</li>
+            </ul>
+
+            <h3>3. BLoC State Management</h3>
+            <p>
+                Enterprise-grade architecture with clean separation of concerns:
+            </p>
+            <ul>
+                <li>HomeBloc manages rabbit list and filtering</li>
+                <li>RabbitControllerBloc handles individual rabbit operations</li>
+                <li>Event-driven architecture for scalability</li>
+                <li>Proper testing and state isolation</li>
+            </ul>
+
+            <h3>4. Database Architecture</h3>
+            <p>
+                Normalized SQLite schema with:
+            </p>
+            <ul>
+                <li>Version control (v2) supporting migrations</li>
+                <li>Foreign key constraints for referential integrity</li>
+                <li>Optimized queries for common operations</li>
+                <li>Support for future schema evolution</li>
+            </ul>
+        </div>
+
+        <!-- Challenges & Solutions -->
+        <div class="case-study-section">
+            <h2>Challenges & Solutions</h2>
+            
+            <div class="benefits">
+                <h3>Challenge: Model Size & Performance</h3>
+                <p>
+                    <strong>Problem:</strong> TensorFlow Lite models can be large and slow on mobile devices.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Used quantized YOLOv8 model with float32 precision for the optimal 
+                    balance between accuracy and performance. Single-threaded inference for consistent, predictable behavior.
+                </p>
+            </div>
+
+            <div class="benefits">
+                <h3>Challenge: Image Aspect Ratio Handling</h3>
+                <p>
+                    <strong>Problem:</strong> YOLO expects square inputs, but photos are rectangular.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Implemented custom letterbox preprocessing that maintains aspect ratio 
+                    while padding to 640×640, preserving all image information without distortion.
+                </p>
+            </div>
+
+            <div class="benefits">
+                <h3>Challenge: Real-time Health Analysis</h3>
+                <p>
+                    <strong>Problem:</strong> Determining health status from a single image could be inconsistent.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Algorithm combines feces count, type, and historical trends for 
+                    context-aware recommendations that improve over time.
+                </p>
+            </div>
+
+            <div class="benefits">
+                <h3>Challenge: Offline Data Sync</h3>
+                <p>
+                    <strong>Problem:</strong> Managing data consistency when user captures many images without internet.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Local SQLite as source of truth with timestamped operations ready for 
+                    future cloud sync when implemented.
+                </p>
+            </div>
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="case-study-section">
+            <h2>Results & Impact</h2>
+            
+            <div class="benefits">
+                <h3>Technical Achievements</h3>
+                <ul>
+                    <li>✓ Fully functional AI-powered health monitoring system</li>
+                    <li>✓ Cross-platform support (Android & iOS) from single codebase</li>
+                    <li>✓ On-device ML with zero server dependency or latency</li>
+                    <li>✓ Enterprise-grade architecture with BLoC pattern</li>
+                    <li>✓ Comprehensive data persistence and history tracking</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h3>Business Value</h3>
+                <ul>
+                    <li>✓ Solves real problem for rabbit owners and breeders</li>
+                    <li>✓ Early detection capability for health issues</li>
+                    <li>✓ Reduces veterinary consultation needs through smart analysis</li>
+                    <li>✓ Privacy-first approach (no data sent to cloud)</li>
+                    <li>✓ Scalable to other animals and health indicators</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lessons Learned -->
+        <div class="case-study-section">
+            <h2>Key Learnings</h2>
+            <p>
+                This project taught me valuable lessons about:
+            </p>
+            <ul>
+                <li><strong>ML Integration:</strong> Implementing production-ready ML models in mobile apps requires careful consideration of model size, inference time, and accuracy trade-offs</li>
+                <li><strong>Domain Knowledge:</strong> Understanding the user's domain (rabbit health) was crucial for building meaningful features</li>
+                <li><strong>Offline-First Design:</strong> Privacy-conscious, offline-first architecture is both more secure and user-friendly</li>
+                <li><strong>State Management at Scale:</strong> BLoC pattern scales well from small features to complex app logic</li>
+                <li><strong>User-Centric Development:</strong> Building features around actual user needs (vs. cool tech) creates better products</li>
+            </ul>
+        </div>
+
+        <!-- Future Enhancements -->
+        <div class="case-study-section">
+            <h2>Future Enhancements</h2>
+            <ul>
+                <li>Cloud sync for multi-device support with end-to-end encryption</li>
+                <li>Community features for rabbit owners to share insights</li>
+                <li>Veterinary integration for professional oversight</li>
+                <li>Advanced ML models trained on larger datasets</li>
+                <li>Wearable device integration for continuous monitoring</li>
+                <li>Multilingual support and localization</li>
+                <li>Web dashboard for family members and veterinarians</li>
+            </ul>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="case-study-cta">
+            <h3>Interested in This Kind of Work?</h3>
+            <p>
+                I combine innovative thinking, technical expertise, and deep product understanding to build 
+                solutions that solve real problems. Let's work together!
+            </p>
+            <a href="../../#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+
+        <!-- Repository Link -->
+        <div class="case-study-section" style="text-align: center; border-top: 2px solid var(--border-color); padding-top: 2rem; margin-top: 3rem;">
+            <h3>View on GitHub</h3>
+            <p>
+                Interested in the code? Check out the repository:
+            </p>
+            <a href="https://github.com/yourusername/rabbit_poop1_beforetranslate" target="_blank" class="btn btn-primary">
+                View Repository
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
+                For detailed technical documentation, see the README.md in the repository
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Spai. All rights reserved. | Built with creativity and code</p>
+            <div class="footer-links">
+                <a href="../../">Home</a>
+                <a href="../../#about">About</a>
+                <a href="../../#projects">Projects</a>
+                <a href="../../#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>
