@@ -37,7 +37,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* ===========================
@@ -247,6 +247,13 @@ p {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    justify-items: center;
+}
+
+.hero-text {
+    justify-self: end;
+    max-width: 520px;
+    width: 100%;
 }
 
 .hero-text h1 {
@@ -1213,7 +1220,7 @@ p {
 /* App Showcase Styles */
 .app-showcase {
     background: linear-gradient(135deg, rgba(6, 163, 66, 0.08) 0%, rgba(78, 205, 196, 0.08) 100%);
-    padding: 60px 0;
+    padding: 100px 0;
     position: relative;
     overflow: hidden;
 }
@@ -1417,7 +1424,7 @@ p {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
     h1 { font-size: 2rem; }
